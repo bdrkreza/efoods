@@ -1,11 +1,14 @@
-import { Link } from "react-router-dom";
-
+import TopBar from "./TopBar";
+import TopSearchBar from "./TopSearchBar";
+import "./Header.scss"
 
 export default function Header() {
     return (
-        <div>
-           <Link to="/home">home</Link>
-           <Link to="/about">about</Link>
-        </div>
+        <>
+            <div className="fixed-top">
+                <TopBar />
+                <TopSearchBar />
+            </div>
+        </>
     )
 }

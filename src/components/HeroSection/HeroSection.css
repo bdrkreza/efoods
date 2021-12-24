@@ -1,0 +1,19 @@
+.hero-banner{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
+}
+
+
+.elementor-divider-separator{
+    border: 3px solid  #FFBA00;
+}
+
+.elementor-icon-box-icon svg{
+height: 50px;
+width: 50px;
+margin-bottom: 15px;
+color: #FFBA00;
+}
+
