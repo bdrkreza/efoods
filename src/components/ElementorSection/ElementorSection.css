@@ -1,0 +1,10 @@
+.elementor-box {
+  border-radius: 10px;
+  margin-right: 10px;
+}
+.box-img {
+  position: absolute;
+  width: 180px;
+  height: 150px;
+  margin-right: 200px;
+}

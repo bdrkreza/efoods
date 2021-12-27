@@ -1,22 +1,119 @@
-@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;300;400;500;600&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@100;300;400;500;600&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Oswald:300,400,500,700");
 
-*{
-    font-family: 'Raleway', sans-serif;
-    margin: 0;
-    padding: 0;
-    -webkit-box-sizing: border-box;
-            box-sizing: border-box;
-    text-decoration: none;
-    outline: none;
-    border: none;
-    text-transform: capitalize;
-    -webkit-transition: all .2s linear;
-    transition: all .2s linear;
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800");
+
+* {
+  font-family: "Raleway", sans-serif;
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  text-decoration: none;
+  outline: none;
+  border: none;
+  text-transform: capitalize;
+  -webkit-transition: all 0.2s linear;
+  transition: all 0.2s linear;
 }
 
 body {
-    background: url(../assets/images/background.jpg);
-    background-attachment: fixed;
-    background-position: center;
-    overflow-x: hidden;
+  background: url(../assets/images/background.jpg);
+  background-attachment: fixed;
+  background-position: center;
+  overflow-x: hidden;
+}
+
+.common-btn {
+  .btn {
+    position: relative;
+    overflow: hidden;
+    z-index: 9;
   }
+  .btn-primary {
+    color: #2f2f41;
+    background-color: rgba(1, 164, 121, 0.1);
+    border-color: #01a479;
+  }
+  .btn:before {
+    content: "";
+    background: #ffba00;
+    width: 4px;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -1;
+    -webkit-transition: all 0.5s ease-in-out 0s;
+    -moz-transition: all 0.5s ease-in-out 0s;
+    -ms-transition: all 0.5s ease-in-out 0s;
+    -o-transition: all 0.5s ease-in-out 0s;
+    transition: all 0.5s ease-in-out 0s;
+  }
+  .btn:hover:before {
+    width: 100%;
+  }
+}
+
+// Extra small devices (portrait phones, less than 576px)
+@media (max-width: 575.98px) {
+  .elementor-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .elementor-box .box-img {
+    position: static;
+    width: 100%;
+    height: 100%;
+  }
+  .about-section .img-box .about-img {
+    width: 500px;
+  }
+}
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .elementor-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .elementor-box .box-img {
+    position: static;
+    width: 100%;
+    height: 100%;
+  }
+  .about-section .img-box .about-img {
+    width: 600px;
+  }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .elementor-box .box-img {
+    width: 130px;
+  }
+  .about-section .img-box .about-img {
+    width: 800px;
+  }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  .elementor-box .box-img {
+    width: 130px;
+  }
+  .about-section .img-box .about-img {
+    width: 500px;
+  }
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+  .about-section .img-box .about-img {
+    width: 550px;
+  }
+}
