@@ -1,13 +1,15 @@
 import { useState } from "react";
 import { BsSearch } from "react-icons/bs";
-import { FiLogIn } from "react-icons/fi";
+import { FiLogIn, FiUser } from "react-icons/fi";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import brandLogo from "../../assets/images/logo.png";
 import { AppState } from "../../services/redux/stores";
 import CartItems from "../cartItem/CartItems";
+import TopSearchBar from "./TopSearchBar";
 export default function Navbar() {
   const cart = useSelector((state: AppState) => state.cart);
+  const { data } = useSelector((state: AppState) => state.auth);
   const [openSearchBar, setOpenSearchBar] = useState(false);
   const [openCartItem, setOpenCartItem] = useState(false);
 
@@ -84,11 +86,20 @@ export default function Navbar() {
                 <BsSearch />
               </a>
             </li>
-            <li className="nav-item ms-2">
-              <a className="nav-link" href="#">
-                <FiLogIn />
-              </a>
-            </li>
+
+            {data ? (
+              <li className="nav-item ms-2">
+                <a className="nav-link" href="#">
+                  <FiUser />
+                </a>
+              </li>
+            ) : (
+              <li className="nav-item ms-2">
+                <Link className="nav-link" to="/login">
+                  <FiLogIn />
+                </Link>
+              </li>
+            )}
             <li
               className="nav-item"
               onClick={() => setOpenCartItem(!openCartItem)}
@@ -107,17 +118,8 @@ export default function Navbar() {
             </li>
           </ul>
         </div>
-
         {openCartItem ? <CartItems /> : null}
-
-        {openSearchBar ? (
-          <div className="search-form">
-            <input type="search" id="search-box" placeholder="search here..." />
-            <label htmlFor="search-box" className="search-icon">
-              <BsSearch />
-            </label>
-          </div>
-        ) : null}
+        {openSearchBar ? <TopSearchBar /> : null}
       </nav>
     </div>
   );

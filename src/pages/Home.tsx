@@ -11,13 +11,13 @@ export default function Home() {
   const { data, isLoading } = useHooks(productService.getProducts);
 
   return (
-    <>
+    <div className="body">
       <HeroSection />
       <ElementorSectoin />
       <AboutSection />
       <MenuItems />
       <VideoSection />
       <ArticleB data={data} isLoading={isLoading} />
-    </>
+    </div>
   );
 }

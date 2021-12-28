@@ -4,6 +4,7 @@ import Footer from "./components/footer/Footer";
 import About from "./pages/About";
 import Checkout from "./pages/Checkout";
 import Home from "./pages/Home";
+import LoginForm from "./pages/LoginForm";
 
 export default function AppRouter({ children }: any) {
   return (
@@ -13,6 +14,7 @@ export default function AppRouter({ children }: any) {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/checkout" element={<Checkout />} />
+        <Route path="/login" element={<LoginForm />} />
         <Route path="/article/:Id" element={<ArticleDetails />} />
       </Routes>
       <Footer />
