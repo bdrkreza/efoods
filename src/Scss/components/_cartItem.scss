@@ -1,0 +1,44 @@
+.cart-items-container {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  height: calc(100vh - 9.5rem);
+  width: 30rem;
+  background: #dbdfdcf1;
+  padding: 0 2rem;
+  height: 840px;
+  overflow-y: auto;
+
+  .cart-item {
+    position: relative;
+    margin: 1rem 0;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    width: 300px;
+
+    svg {
+      cursor: pointer;
+      color: #000;
+    }
+
+    .fa-times svg {
+      color: red;
+      font-size: 20px;
+    }
+
+    img {
+      height: 7rem;
+    }
+  }
+
+  .btn {
+    width: 100%;
+    text-align: center;
+  }
+  hr {
+    height: 2px;
+    background-color: #1266f1;
+    opacity: 1;
+  }
+}

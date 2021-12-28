@@ -1,23 +1,24 @@
+import { IProduct } from "../../types";
 import requests from "./httpService";
 
 class ProductService {
-  getProducts(): Promise<any> {
+  getProducts(): Promise<IProduct[]> {
     return requests.get("/product");
   }
 
-  getProductByID(id: string): Promise<any> {
+  getProductByID(id: string | undefined): Promise<IProduct> {
     return requests.get(`/product/${id}`);
   }
 
-  addProduct(body: {}): Promise<any> {
+  addProduct(body: {}): Promise<IProduct> {
     return requests.post("/product/", body);
   }
 
-  updateProduct(id: string, body: {}): Promise<any> {
+  updateProduct(id: string, body: {}): Promise<IProduct> {
     return requests.patch(`/product/${id}`, body);
   }
 
-  delete(id: string): Promise<any> {
+  delete(id: string): Promise<IProduct> {
     return requests.delete(`/product/${id}`);
   }
 }

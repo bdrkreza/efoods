@@ -1,14 +1,14 @@
+import "./Header.scss";
+import Navbar from "./Navbar";
 import TopBar from "./TopBar";
-import TopSearchBar from "./TopSearchBar";
-import "./Header.scss"
 
 export default function Header() {
-    return (
-        <>
-            <div className="fixed-top">
-                <TopBar />
-                <TopSearchBar />
-            </div>
-        </>
-    )
+  return (
+    <>
+      <div className="fixed-top">
+        <TopBar />
+        <Navbar />
+      </div>
+    </>
+  );
 }

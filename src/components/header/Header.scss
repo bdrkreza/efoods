@@ -159,3 +159,114 @@ li {
   background: -webkit-linear-gradient(left, #54d400 48%, #1b1e21 48%);
   background: linear-gradient(45deg, #54d400 48%, #1b1e21 48%);
 }
+
+//shopping cart
+.nav-bar svg {
+  font-size: large;
+  color: #dbcfcf;
+}
+.shoppingbasket {
+  width: 40px;
+  height: 40px;
+  background-color: #000;
+  position: absolute;
+  .basketitems {
+    color: #fff;
+    font-size: 90%;
+    background-color: #e74c3c;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -90%);
+    -moz-transform: translate(-50%, -90%);
+    transform: translate(-50%, -90%);
+    padding: 0 12%;
+    border-radius: 1000px;
+  }
+  .top-bar {
+    width: 80%;
+    height: 10%;
+    border-radius: 1000px;
+    background-color: #fff;
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    transform: translateX(-50%);
+  }
+  .bottom-bar {
+    width: 50%;
+    height: 10%;
+    border-radius: 1000px;
+    background-color: #fff;
+    position: absolute;
+    bottom: 25%;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    transform: translateX(-50%);
+  }
+  .left-bar {
+    width: 50%;
+    height: 10%;
+    border-radius: 1000px;
+    background-color: #fff;
+    position: absolute;
+    top: 45%;
+    left: 1%;
+    transform: rotate(80deg);
+    transform: translateX(80deg);
+    transform: translateX(80deg);
+  }
+  .right-bar {
+    width: 50%;
+    height: 10%;
+    border-radius: 1000px;
+    background-color: #fff;
+    position: absolute;
+    top: 45%;
+    right: 1%;
+    transform: rotate(-80deg);
+    transform: translateX(-60deg);
+    transform: translateX(-80deg);
+  }
+}
+
+.search-form {
+  position: absolute;
+  margin-right: 210px;
+  top: 115%;
+  right: 7%;
+  background: #fff;
+  width: 35rem;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  transform: scaleY(1);
+  transform-origin: top;
+
+  .active {
+    transform: scaleY(1);
+  }
+
+  input {
+    height: 100%;
+    width: 100%;
+    font-size: 1.6rem;
+    color: var(--black);
+    padding: 1rem;
+    text-transform: none;
+  }
+
+  label {
+    cursor: pointer;
+    font-size: 2.2rem;
+    margin-right: 1.5rem;
+    color: var(--black);
+  }
+
+  label:hover {
+    color: var(--main-color);
+  }
+}

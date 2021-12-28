@@ -1,4 +1,6 @@
+import { Link } from "react-router-dom";
 import { IProduct } from "../../types";
+import imageUrl from "../../utils/getImageUrl";
 
 interface IProps {
   data: IProduct;
@@ -7,7 +9,10 @@ interface IProps {
 export default function ArticleCart({ data }: IProps) {
   return (
     <div>
-      <h1>{data.name}</h1>
+      <Link to={`/article/${data._id}`}>
+        <h1>{data.name}</h1>
+        <img className="w-25 h-25" src={imageUrl(data.image)} alt="" />
+      </Link>
     </div>
   );
 }
