@@ -1,22 +1,26 @@
 import { useState } from "react";
 import { BsSearch } from "react-icons/bs";
-import { FiLogIn, FiUser } from "react-icons/fi";
-import { useSelector } from "react-redux";
+import { FaUserAlt } from "react-icons/fa";
+import { FiUser } from "react-icons/fi";
+import { MdLogout } from "react-icons/md";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import brandLogo from "../../assets/images/logo.png";
+import { logout } from "../../services/redux/actionCreator/authAction";
 import { AppState } from "../../services/redux/stores";
 import CartItems from "../cartItem/CartItems";
 import TopSearchBar from "./TopSearchBar";
 export default function Navbar() {
+  const dispatch = useDispatch();
   const cart = useSelector((state: AppState) => state.cart);
   const { data } = useSelector((state: AppState) => state.auth);
   const [openSearchBar, setOpenSearchBar] = useState(false);
   const [openCartItem, setOpenCartItem] = useState(false);
 
   return (
-    <div>
+    <>
       <nav className="navbar navbar-expand-lg navbar-dark mx-background-top-linear">
-        <div className="container">
+        <div className="container ">
           <a className="navbar-brand" href="index.html">
             <img src={brandLogo} alt="" />
           </a>
@@ -66,7 +70,7 @@ export default function Navbar() {
               </li>
             </ul>
           </div>
-          <ul className=" d-flex justify-content-evenly justify-content-center nav-bar">
+          <ul className=" d-flex ms-auto mr-5 nav-bar">
             <button
               className="navbar-toggler"
               type="button"
@@ -88,23 +92,23 @@ export default function Navbar() {
             </li>
 
             {data ? (
-              <li className="nav-item ms-2">
-                <a className="nav-link" href="#">
-                  <FiUser />
-                </a>
+              <li className="nav-item">
+                <Link className="nav-link" to="/profile">
+                  <FaUserAlt />
+                </Link>
               </li>
             ) : (
-              <li className="nav-item ms-2">
+              <li className="nav-item">
                 <Link className="nav-link" to="/login">
-                  <FiLogIn />
+                  <FiUser />
                 </Link>
               </li>
             )}
             <li
-              className="nav-item"
+              className="nav-item me-5"
               onClick={() => setOpenCartItem(!openCartItem)}
             >
-              <a href="#" className="nav-link">
+              <a className="nav-link">
                 <div className="shoppingbasket">
                   <div className="top-bar"></div>
                   <div className="bottom-bar"></div>
@@ -116,11 +120,22 @@ export default function Navbar() {
                 </div>
               </a>
             </li>
+            {data && (
+              <li className="nav-item">
+                <Link
+                  className="nav-link"
+                  onClick={() => dispatch(logout())}
+                  to="/login"
+                >
+                  <MdLogout />
+                </Link>
+              </li>
+            )}
           </ul>
         </div>
         {openCartItem ? <CartItems /> : null}
         {openSearchBar ? <TopSearchBar /> : null}
       </nav>
-    </div>
+    </>
   );
 }
