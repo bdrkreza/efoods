@@ -10,6 +10,10 @@ class ProductService {
     return requests.get(`/product/${id}`);
   }
 
+  getMerchantsProducts(): Promise<IProduct[]> {
+    return requests.get("/merchant/products");
+  }
+
   addProduct(body: {}): Promise<IProduct> {
     return requests.post("/product/", body);
   }

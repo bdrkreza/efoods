@@ -10,7 +10,7 @@ $gr-3: linear-gradient(170deg, #c86dd7 0%, #3023ae 100%);
   color: white;
   hr {
     width: 200px;
-    border: 2px solid #ffba00;
+    border: 2px solid $warning;
   }
   .menu-title h1 {
     font-size: 50px;
@@ -44,7 +44,7 @@ $gr-3: linear-gradient(170deg, #c86dd7 0%, #3023ae 100%);
     letter-spacing: 0.05rem;
     font-family: "Oswald", sans-serif;
     box-shadow: 0 0 21px rgba(0, 0, 0, 0.27);
-    border: 1px groove #ffba00;
+    border: 1px groove $warning;
     border-radius: 25px;
     p {
       font-size: 1.2rem;

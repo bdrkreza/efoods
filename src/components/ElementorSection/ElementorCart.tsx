@@ -11,7 +11,7 @@ export default function ElementorCart({ data }: IProps) {
   return (
     <>
       <div className="col-lg-4 col-md-6 col-sm-6 mt-5">
-        <div className="row border bg-warning h-100 elementor-box">
+        <div className="row border h-100 elementor-box">
           <div className="col-md-5 col-lg-6 col-sm-6">
             <img src={data.img} className="box-img" alt="" />
           </div>

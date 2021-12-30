@@ -5,10 +5,12 @@ import storage from "redux-persist/lib/storage";
 import reduxThank from "redux-thunk";
 import authReducer from "./reducers/authReducer";
 import cartReducer from "./reducers/cartReducers";
+import { changeState } from "./reducers/sidebarShow";
 
 const rootReducer = combineReducers({
   cart: cartReducer,
   auth: authReducer,
+  nav: changeState,
 });
 
 const persistConfig = {

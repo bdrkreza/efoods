@@ -9,9 +9,11 @@ import brandLogo from "../../assets/images/logo.png";
 import { logout } from "../../services/redux/actionCreator/authAction";
 import { AppState } from "../../services/redux/stores";
 import CartItems from "../cartItem/CartItems";
+import DropDown from "./DropDown";
 import TopSearchBar from "./TopSearchBar";
 export default function Navbar() {
   const dispatch = useDispatch();
+  const [openUserMenu, setOpenUserMenu] = useState(false);
   const cart = useSelector((state: AppState) => state.cart);
   const { data } = useSelector((state: AppState) => state.auth);
   const [openSearchBar, setOpenSearchBar] = useState(false);
@@ -92,10 +94,10 @@ export default function Navbar() {
             </li>
 
             {data ? (
-              <li className="nav-item">
-                <Link className="nav-link" to="/profile">
+              <li onClick={() => setOpenUserMenu(!openUserMenu)}>
+                <a className="nav-link " href="#">
                   <FaUserAlt />
-                </Link>
+                </a>
               </li>
             ) : (
               <li className="nav-item">
@@ -104,6 +106,7 @@ export default function Navbar() {
                 </Link>
               </li>
             )}
+
             <li
               className="nav-item me-5"
               onClick={() => setOpenCartItem(!openCartItem)}
@@ -133,6 +136,7 @@ export default function Navbar() {
             )}
           </ul>
         </div>
+        {openUserMenu ? <DropDown /> : null}
         {openCartItem ? <CartItems /> : null}
         {openSearchBar ? <TopSearchBar /> : null}
       </nav>

@@ -25,3 +25,10 @@ export interface IAuthData {
   status: string;
   token: string;
 }
+
+export interface IDashboardStats {
+  totalUser: number;
+  totalOrder: number;
+  totalProduct: number;
+  totalStore: number;
+}

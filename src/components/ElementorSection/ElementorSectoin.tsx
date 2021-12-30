@@ -1,6 +1,5 @@
 import { elemtorData } from "../../services/fakeApi/fakeApi";
 import ElementorCart from "./ElementorCart";
-import "./ElementorSection.css";
 
 export default function ElementorSectoin() {
   return (

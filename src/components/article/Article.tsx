@@ -12,7 +12,7 @@ export default function ArticleB({ data, isLoading }: IProps) {
       {isLoading && <h1>isLoading.......</h1>}
       {!isLoading && (
         <div>
-          {data?.map((data: IProduct) => (
+          {data?.slice(5, 10).map((data: IProduct) => (
             <ArticleCart data={data} key={data._id} />
           ))}
         </div>
