@@ -1,22 +1,19 @@
-import { cilChartPie } from '@coreui/icons';
-import CIcon from '@coreui/icons-react';
-import { CCol, CRow, CWidgetStatsF } from '@coreui/react';
-import { lazy } from 'react';
-import DashboardService from '../../../services/api/DashboardService';
-import useHooks from '../../../utils/useHooks';
-import WidgetsBrand from '../widgets/WidgetsBrand';
+import { cilChartPie } from "@coreui/icons";
+import CIcon from "@coreui/icons-react";
+import { CCol, CRow, CWidgetStatsF } from "@coreui/react";
+import { lazy } from "react";
+import DashboardService from "../../../services/api/DashboardService";
+import useHooks from "../../../utils/useHooks";
+import WidgetsBrand from "../widgets/WidgetsBrand";
 
-const Widgets =lazy(() =>import('../widgets/Widgets'));
-const TrafficWidgets = lazy(() => import('../widgets/TrafficWidgets'))
-const UserList = lazy(() => import('../userList/UserList'))
-const TrafficAndSales = lazy(() => import('../widgets/TrafficAndSales'))
+const TrafficWidgets = lazy(() => import("../widgets/TrafficWidgets"));
+const UserList = lazy(() => import("../userList/UserList"));
+const TrafficAndSales = lazy(() => import("../widgets/TrafficAndSales"));
 
 const Dashboard = () => {
   const { data } = useHooks(DashboardService.getStats);
   return (
     <>
-    <Widgets/>
-
       <CRow>
         <CCol xs={3}>
           <CWidgetStatsF
@@ -59,10 +56,10 @@ const Dashboard = () => {
           />
         </CCol>
       </CRow>
-      <TrafficWidgets/>
-      <WidgetsBrand/>
-      <TrafficAndSales/>
-      <UserList/>
+      <TrafficWidgets />
+      <WidgetsBrand />
+      <TrafficAndSales />
+      <UserList />
     </>
   );
 };

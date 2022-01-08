@@ -1,7 +1,4 @@
-import AppContent from "../components/AppContent";
-import AppFooter from "../components/AppFooter";
-import AppHeader from "../components/AppHeader";
-import AppSidebar from "../components/AppSidebar";
+import { AppContent, AppFooter, AppHeader, AppSidebar } from "../components";
 import "../scss/style.scss";
 
 export default function DashboardLayout() {

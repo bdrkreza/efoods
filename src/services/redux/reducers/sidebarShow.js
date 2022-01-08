@@ -1,8 +1,8 @@
 const initialState = {
-  sidebarShow: true,
+  isOn: true,
 };
 
-export const changeState = (state = initialState, { type, ...rest }) => {
+export const changeState = (state = initialState, { type, ...rest }:any) => {
   switch (type) {
     case "set":
       return { ...state, ...rest };
