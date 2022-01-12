@@ -52,3 +52,19 @@
     top: 0;
   }
 }
+
+// Extra small devices (portrait phones, less than 576px)
+@media (max-width: 575.98px) {
+  .add-food-reverse {
+    display: flex;
+    flex-wrap: wrap-reverse;
+  }
+}
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) and (max-width: 991.98px) {
+  .add-food-reverse {
+    display: flex;
+    flex-wrap: wrap-reverse;
+  }
+}

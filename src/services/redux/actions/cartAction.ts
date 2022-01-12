@@ -1,9 +1,9 @@
-import { IProduct } from "../../../types";
+import { IFoodItem } from "../../../types";
 import { ActionType } from "../actionType";
 
 interface addToCartAction {
   type: ActionType.ADD_TO_CART;
-  payload: IProduct;
+  payload: IFoodItem;
 }
 
 interface removeFromCartAction {

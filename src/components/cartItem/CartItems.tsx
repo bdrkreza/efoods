@@ -1,31 +1,35 @@
 import { BsPlusLg } from "react-icons/bs";
 import { FaMinus } from "react-icons/fa";
 import { VscChromeClose } from "react-icons/vsc";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { removeFromCart } from "../../services/redux/actionCreator/cartAction";
 import { AppState } from "../../services/redux/stores";
-import imageUrl from "../../utils/getImageUrl";
+import { IFoodItem } from "../../types";
 
 export default function CartItems() {
   const cart = useSelector((state: AppState) => state.cart);
-
+  const dispatch = useDispatch();
   return (
     <>
       <div className="cart-items-container">
-        {cart.map((item) => (
+        {cart.map((item: IFoodItem) => (
           <>
             <div className="cart-item">
               <div className="d-flex align-items-center">
                 <div className="flex-shrink-0">
                   <img
-                    src={imageUrl(item.image)}
+                    src={item.image}
                     className="img-fluid"
                     alt="Generic placeholder image"
                   />
                 </div>
                 <div className="flex-grow-1 ms-3">
-                  <a href="#!" className="float-end text-black fa-times ">
+                  <button
+                    onClick={() => dispatch(removeFromCart(item._id as string))}
+                    className="float-end text-black fa-times "
+                  >
                     <VscChromeClose />
-                  </a>
+                  </button>
                   <h5 className="text-primary">{item.name}</h5>
                   <h6>Color: Red</h6>
                   <div className="d-flex align-items-center justify-content-center">

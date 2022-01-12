@@ -8,6 +8,7 @@ import {
   Customer,
   Dashboard,
   FoodDetails,
+  FoodGrid,
   FoodItemList,
   OrderList,
   Reviews,
@@ -44,6 +45,7 @@ export default function AppRouter() {
               <Route path="customer" element={<Customer />} />
               <Route path="addFoodItem" element={<AddFoodItem />} />
               <Route path="foodItemList" element={<FoodItemList />} />
+              <Route path="foodGrid" element={<FoodGrid />} />
               <Route path="foodItemDetails" element={<FoodDetails />} />
               <Route path="review" element={<Reviews />} />
               <Route path="calendar" element={<Calendar />} />

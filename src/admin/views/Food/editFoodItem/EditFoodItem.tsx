@@ -2,26 +2,34 @@ import {
   CButton,
   CCard,
   CCardBody,
-  CCardHeader,
   CCardImage,
   CCardTitle,
   CCol,
   CForm,
   CFormInput,
   CFormLabel,
+  CModal,
+  CModalBody,
+  CModalFooter,
+  CModalHeader,
+  CModalTitle,
   CRow,
 } from "@coreui/react";
-import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { CreateFood } from "../../../../services/redux/actionCreator/foodAction";
-import { AppState } from "../../../../services/redux/stores";
+import { useEffect, useState } from "react";
+import { foodsService } from "../../../../services";
 import { IFormData } from "../../../../types";
 
-export default function AddFoodItem() {
-  const dispatch = useDispatch();
+interface IProps {
+  id: string | undefined;
+  visible: boolean;
+  setVisible: any;
+}
+
+export default function EditFoodItem({ id, visible, setVisible }: IProps) {
   const [formData, setFormData] = useState<IFormData>({} as IFormData);
   const [file, setFile] = useState<string>("");
   const [imgData, setImgData] = useState(null);
+  const [data, setData] = useState({});
 
   const handleOnChange = (e: any): void => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -47,28 +55,27 @@ export default function AddFoodItem() {
     newFormData.append("rating", formData.rating);
     newFormData.append("category", formData.category);
     newFormData.append("description", formData.description);
-    // @ts-ignore
-    dispatch(CreateFood(newFormData));
   };
 
-  const { loading, status } = useSelector(
-    (state: AppState) => state.foodCreate
-  );
+  useEffect(() => {
+    foodsService.getFoodItemByID(id).then((data) => {
+      setData(data);
+    });
+  }, [id]);
+  console.log(data);
   return (
     <div className="container">
-      <CCard>
-        <CCardHeader>Add Product</CCardHeader>
-        {status === "error" && (
-          <div className="alert alert-success" role="alert">
-            <h1>Something went wrong. Please try again later.</h1>
-          </div>
-        )}
-        {status === "success" && (
-          <div className="alert alert-success" role="alert">
-            <h1>Create Store successfully</h1>
-          </div>
-        )}
-        <CCardBody>
+      <CModal
+        size="lg"
+        alignment="center"
+        visible={visible}
+        onClose={() => setVisible(false)}
+      >
+        <CModalHeader>
+          <CModalTitle>Edit FoodItem</CModalTitle>
+        </CModalHeader>
+
+        <CModalBody>
           <CRow>
             <CForm className="row g-5 p-4 m-auto d-flex justify-content-center bg-light align-items-center ">
               <CRow className="add-food-reverse">
@@ -80,6 +87,7 @@ export default function AddFoodItem() {
                         onChange={handleOnChange}
                         name="name"
                         type="text"
+                        defaultValue="name"
                       />
                     </CCol>
                     <CCol md={6}>
@@ -124,16 +132,6 @@ export default function AddFoodItem() {
                       ></textarea>
                     </CCol>
                   </CRow>
-
-                  <CCol xs={12} className="text-center mt-5">
-                    <CButton
-                      disabled={loading}
-                      onClick={onSubmit}
-                      type="button"
-                    >
-                      {loading ? "Loading..." : "Add Product"}
-                    </CButton>
-                  </CCol>
                 </CCol>
                 <CCol sm={12} lg={6} className="m-auto">
                   <CCard className="w-100">
@@ -157,8 +155,18 @@ export default function AddFoodItem() {
               </CRow>
             </CForm>
           </CRow>
-        </CCardBody>
-      </CCard>
+        </CModalBody>
+
+        <CModalFooter>
+          <CButton color="secondary" onClick={() => setVisible(false)}>
+            Close
+          </CButton>
+
+          <CButton onClick={onSubmit} type="button">
+            {/* {loading ? "Loading..." : "Save changing"} */}
+          </CButton>
+        </CModalFooter>
+      </CModal>
     </div>
   );
 }

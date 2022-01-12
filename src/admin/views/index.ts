@@ -4,6 +4,7 @@ import Chat from "./chat/Chat";
 import Customer from "./customer/Customer";
 import Dashboard from "./dashboard/Dashboard";
 import FoodDetails from "./Food/foodDetails/FoodDetails";
+import FoodGrid from "./Food/foodGrid/FoodGrid";
 import FoodItemList from "./Food/foodItemList/FoodItemList";
 import OrderList from "./orderList/OrderList";
 import Reviews from "./reviews/Reviews";
@@ -16,6 +17,7 @@ export {
   Analytics,
   Reviews,
   FoodDetails,
+  FoodGrid,
   FoodItemList,
   Chat,
   Calendar,

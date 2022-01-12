@@ -51,6 +51,12 @@ export default function NavItem() {
             <CBadge color="primary ms-auto">NEW</CBadge>
           </CNavLink>
 
+          <CNavLink to="foodGrid" component={NavLink}>
+            <CIcon customClassName="nav-icon" icon={cilSpeedometer} />
+            FoodGrid
+            <CBadge color="primary ms-auto">NEW</CBadge>
+          </CNavLink>
+
           <CNavLink to="foodItemDetails" component={NavLink}>
             <CIcon customClassName="nav-icon" icon={cilSpeedometer} />
             FoodItemDetails

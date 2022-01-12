@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { ChangeEvent, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { userType } from "../services/api/authService";
@@ -17,7 +17,7 @@ export default function LoginForm() {
 
   const dispatch = useDispatch();
 
-  const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleOnChange = (e: ChangeEvent<HTMLInputElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
@@ -32,6 +32,12 @@ export default function LoginForm() {
         {status === "error" && (
           <div className="alert alert-success" role="alert">
             {error}
+          </div>
+        )}
+
+        {status === "success" && (
+          <div className="alert alert-success" role="alert">
+            <h1>success</h1>
           </div>
         )}
         <form>
