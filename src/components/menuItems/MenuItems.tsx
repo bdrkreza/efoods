@@ -1,13 +1,10 @@
-import { useEffect, useState } from "react";
-import { itemData } from "../../services/fakeApi/fakeApi";
-import { IItems } from "../../types";
+import { useSelector } from "react-redux";
+import { AppState } from "../../services/redux/stores";
+import { IFoodItem } from "../../types";
 import MenuItemsCart from "./MenuItemsCart";
 
 export default function MenuItems() {
-  const [items, setItems] = useState<IItems[]>([]);
-  useEffect(() => {
-    setItems(itemData);
-  }, []);
+  const { data, loading } = useSelector((state: AppState) => state.food);
   return (
     <div className="container mt-5">
       <div className="menu-container">
@@ -22,23 +19,25 @@ export default function MenuItems() {
           </div>
           <div className="d-flex justify-content-evenly mt-4">
             <a href="#" className="btn btn-outline-secondary btn-lg border">
-              Order Now
+              berger
             </a>
             <a href="#" className="btn btn-outline-secondary btn-lg border">
-              Order Now
+              Pizza
             </a>
             <a href="#" className="btn btn-outline-secondary btn-lg border">
-              Order Now
+              juice
             </a>
           </div>
         </div>
       </div>
-
-      <div className="row align-middle">
-        {items.slice(1).map((data: IItems) => (
-          <MenuItemsCart data={data} key={data.id} />
-        ))}
-      </div>
+      {loading && <div>.......isLoading</div>}
+      {!loading && (
+        <div className="row align-middle">
+          {data?.map((data: IFoodItem) => (
+            <MenuItemsCart data={data} key={data._id} />
+          ))}
+        </div>
+      )}
     </div>
   );
 }

@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
-import { IProduct } from "../../types";
+import { IArticle } from "../../types";
 import imageUrl from "../../utils/getImageUrl";
 
 interface IProps {
-  data: IProduct;
+  data: IArticle;
 }
 
 export default function ArticleCart({ data }: IProps) {

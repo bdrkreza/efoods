@@ -1,22 +1,19 @@
-import { IProduct } from "../../types";
-import ArticleCart from "./ArticleCart";
+// interface IProps {
+//   data: IArticle[] | null;
+//   isLoading: boolean;
+// }
 
-interface IProps {
-  data: IProduct[] | null;
-  isLoading: boolean;
-}
-
-export default function ArticleB({ data, isLoading }: IProps) {
+export default function ArticleB() {
   return (
     <div>
-      {isLoading && <h1>isLoading.......</h1>}
+      {/* {isLoading && <h1>isLoading.......</h1>}
       {!isLoading && (
         <div>
-          {data?.slice(5, 10).map((data: IProduct) => (
+          {data?.slice(5, 10).map((data: IArticle) => (
             <ArticleCart data={data} key={data._id} />
           ))}
         </div>
-      )}
+      )} */}
     </div>
   );
 }

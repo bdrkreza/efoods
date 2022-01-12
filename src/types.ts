@@ -1,19 +1,46 @@
-export interface IItems {
+export interface Review {
+  _id: string;
+  user: string;
   name: string;
-  img: string;
-  title: string;
-  id: number;
-  price: number;
+  rating: number;
+  comment: string;
+  createdAt: string;
 }
 
-export interface IProduct {
+export interface IFormData {
+  name: string;
+  image: string;
+  description: string;
+  type: string;
+  category: string;
+  price: string;
+  rating: string;
+}
+export interface IFoodItem {
+  _id?: string;
+  customer?: string;
+  // eslint-disable-next-line camelcase
+  public_id?: string;
+  name: string;
+  image: string;
+  description: string;
+  type: string;
+  category: string;
+  price: number;
+  rating: number;
+  reviews?: Array<Review>;
+  _v?: number;
+}
+
+export interface IArticle {
   _id?: string;
   name: string;
-  category: string;
-  description: string;
-  store: string;
-  price: number;
   image: string;
+  description: string;
+  type: string;
+  category: string;
+  price: number;
+  rating: number;
   _v: number;
 }
 
